@@ -1,0 +1,45 @@
+body {
+    background: linear-gradient(to bottom, #87CEFA, #B0E0E6, #AFEEEE);
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+/* เพิ่มสไตล์สำหรับเมนูไอคอนฮัมเบอร์เกอร์ */
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #4682B4;
+    height: 60px;
+    padding: 0 20px;
+}
+
+.navbar-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+}
+
+.navbar-menu {
+    display: none;
+}
+
+.navbar-menu a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+}
+
+.navbar-toggle.active+.navbar-menu {
+    display: block;
+}
