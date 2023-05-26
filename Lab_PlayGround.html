@@ -54,44 +54,51 @@
         <textarea class="form-control" rows="5" id="command"></textarea>
     </div>
 
-    <button type="button" class="btn btn-outline-success">submit</button>
+    <button type="button" class="btn btn-outline-success" onclick="fetchData()">get info</button>
 
     <div class="form-group">
         <label for="output">output:</label>
-        <textarea class="form-control" rows="5" id="command1" onclick="fetchData()" readonly></textarea>
+        <textarea class="form-control" value="string" rows="5" id="command1" readonly></textarea>
     </div>
   </div>
 </div>
 
-  <!-- Bootstrap JS -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    
-    <script>
-      $(document).ready(function() {
-        // Event listener for submit button click
-        $('#submit-btn').on('click', function() {
-          // Get the selected values and command
-          var device = $('#dropdown1').val();
-          var command = $('#dropdown2').val();
-          var customCommand = $('#command').val();
-  
-          // Prepare the data to send to the server
-          var data = {
-            device: device,
-            command: command,
-            customCommand: customCommand
-          };
-  
-          // Send the data to the server
-          $.post('/send-command', data, function(response) {
-            // Update the output textarea with the response
-            $('#output').val(response);
-          });
+  <script>
+    function fetchData() {
+      var dropdown1 = document.getElementById("dropdown1");
+      var selectedDevice = dropdown1.options[dropdown1.selectedIndex].text;
+
+      var dropdown2 = document.getElementById("dropdown2");
+      var selectedCommand = dropdown2.options[dropdown2.selectedIndex].text;
+      if (dropdown1 == 'R0') {
+        var requestURL = "data.json";
+      } else if (dropdown1 == 'R1') {
+        var requestURL = "R1-show-int.json";
+      } else if (dropdown1 == 'R2') {
+        var requestURL = "http://172.31.104.11/json/R2-show-int.json";
+      } else if (dropdown1 == 'R3') {
+        var requestURL = "http://172.31.104.11/json/R3-show-int.json";
+      } else if (dropdown1 == 'S0') {
+        var requestURL = "http://172.31.104.11/json/S0-show-int.json";
+      } else if (dropdown1 == 'S1') {
+        var requestURL = "http://172.31.104.11/json/S1-show-int.json";
+      }
+      const input = document.getElementById("command1");
+      if (input) {
+        input.value = 'new value'
+      }
+      $(document).ready(function(){
+        $.getJSON("test.json", function(data){
+            console.log(data.name); // Prints: Harry
+            console.log(data.age); // Prints: 14
+        }).fail(function(){
+            console.log("An error has occurred.");
         });
-      });
-    </script>
-    <script src="script.js"></script>
+    });
+    }
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
 </body>
 </html>

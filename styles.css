@@ -129,30 +129,32 @@ b {
     margin-top: 0vh;
     position: absolute;
     bottom: 50vh;
+    left: 0;
     background-color: #40E0D0;
     overflow: hidden;
     width: 50vh;
     height: 0;
     transition: .5s ease;
     border-radius: 2vh;
-    left: 47.6vh
+    left: 45.2vh;
 }
 
 .overlay1 {
     margin-top: 0vh;
     position: absolute;
     bottom: 50vh;
+    left: 0;
     background-color: #09a8bd;
     overflow: hidden;
     width: 60vh;
     height: 0;
     transition: .5s ease;
     border-radius: 2vh;
-    left: 107.6vh;
+    left: 90vh;
 }
 
 .container:hover .overlay {
-    bottom: 18.6vh;
+    bottom: 19vh;
     height: 35vh;
     width: 50vh;
     border-radius: 2vh;
@@ -160,11 +162,12 @@ b {
 }
 
 .container:hover .overlay1 {
-    bottom: 18.6vh;
+    bottom: 19vh;
     height: 35vh;
     width: 50vh;
     border-radius: 2vh;
     margin-top: 0vh;
+    left: 105vh;
 }
 
 .text {
